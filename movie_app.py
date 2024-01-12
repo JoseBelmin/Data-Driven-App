@@ -2,19 +2,19 @@ import tkinter as tk
 from tkinter import ttk
 import customtkinter as ctk
 from PIL import Image, ImageTk, ImageOps
-from tkinter import font
+from tkinter.font import Font
 
 # API Key
 ## f38ca6a78610b61ecefac1679d06c740
 
 # Create the main window
 window = ctk.CTk()
-window.geometry("1133x744")
+window.minsize(1133, 744)
 window.title("Mango Movies")
 
 # Font Families
-Lexend = font.Font(family="Lexend", size=12)
-Inter = font.Font(family="Inter", size=12)
+Lexend = Font(family="Lexend", size=12)
+Inter = Font(family="Inter", size=12)
 
 
 # Logo image
@@ -31,18 +31,23 @@ def search():
     # Search logic here
     print(f"{query}")
 # Entry field
-searchBar = ttk.Entry(window, 
-                      width=50)
+searchBar = ctk.CTkEntry(window, 
+                         width=150,
+                         height=35,
+                         fg_color="#FFFFFF",
+                         corner_radius=6)
 searchBar.pack()
 # Search Button
-searchImg = Image.open("Icons\Search.png").resize((45, 45))
-search_tk = ImageTk.PhotoImage(searchImg)
-
-searchButton = ttk.Button(window, 
-                          text="Search", 
-                          command=search,
-                          takefocus=False,
-                          image=search_tk)
+searchButton = ctk.CTkButton(window, 
+                             text="Search",
+                             text_color="#FFFFFF",
+                             font=(Lexend, 12, "bold"),
+                             command=search,
+                             width=70,
+                             height=35,
+                             fg_color="#FF9F1C",
+                             hover_color="#FFBF69",
+                             corner_radius=6)
 searchButton.pack()
 
 
