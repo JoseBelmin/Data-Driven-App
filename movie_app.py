@@ -1,5 +1,7 @@
-import customtkinter as ctk
+import tkinter as tk
 from tkinter import ttk
+import customtkinter as ctk
+from PIL import Image, ImageTk
 
 # API Key
 ## f38ca6a78610b61ecefac1679d06c740
@@ -8,15 +10,17 @@ from tkinter import ttk
 font = ("Inter", 16)
 
 # Create the main window
-window = ctk.Ctk()
+window = tk.Tk()
 window.title("Mango Movies")
-window.geometry("1366x1024")
+window.geometry("1133x744")
 window.option_add("*font", font)
 
 # Logo image
-logoImg = ctk.PhotoImage(file="Images\Logo.png")
-logoFrame = ctk.Label(window, image=logoImg)
-logoFrame.pack()
+logoImg = Image.open("Images\logo.png")
+logo_tk = ImageTk.PhotoImage(logoImg)
+
+logoLabel = ttk.Label(window, image=logo_tk)
+logoLabel.pack()
 
 # Search bar
 def search():
@@ -24,13 +28,13 @@ def search():
     # Search logic here
     print(f"{query}")
 # Entry field
-searchBar = ctk.Entry(window, width=50)
+searchBar = ctk.CTkEntry(window, width=50)
 searchBar.pack()
 # Search Button
-searchButton = ctk.Button(window, text="Search", command=search)
+searchButton = ctk.CTkButton(window, text="Search", command=search)
 searchButton.pack()
 
-label = ctk.Label(window, text="Hello, World!")
+label = ctk.CTkLabel(window, text="Hello, World!")
 label.pack()
 
 
