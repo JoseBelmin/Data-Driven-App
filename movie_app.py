@@ -11,7 +11,7 @@ import tmdbsimple as tmdb
 # import os
 # import sys
 
-# ctk.set_appearance_mode("dark")
+# ctk.set_appearance_mode("light")
 
 # Open app window
 window = ctk.CTk()
