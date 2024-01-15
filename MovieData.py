@@ -30,7 +30,7 @@ def download_image(url, id):
     except (HTTPError, URLError):
         return "Assets\PnA.png"
     
-    # Poster styleing
+    # Poster styling
     basewidth = 320
     img = Image.open(poster_name).convert("RGB")
     wpercent = (basewidth / float(img.size[0]))
