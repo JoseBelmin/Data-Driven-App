@@ -191,6 +191,12 @@ def movie_info():
                              text_color=Dark,
                              bg_color=(Color4, Color2))
     movieName.place(x=77, y=166)
+    movieTitle = ctk.CTkLabel(search,
+                              text=get_data(searchbar.get())[current_index].title,
+                              font=("Lexend", 32),
+                              text_color=Dark,
+                              bg_color=(Color4, Color2))
+    movieTitle.place(x=77, y=198)
     # Space for code to display movie name
     releaseDate = ctk.CTkLabel(search,
                                text="Year",
@@ -230,7 +236,7 @@ def movie_info():
     poster_img = ctk.CTkImage(light_image=Image.open("Assets\PnA.png"),
                               dark_image=Image.open("Assets\PnA.png"),
                               size=(320, 450))
-    poster = ctk.CTkLabel(search, image=poster_img, text="")
+    poster = ctk.CTkLabel(search, image=display_movie_image, text="")
     poster.place(x=717, y=198)
             
 home()
