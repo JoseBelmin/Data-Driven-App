@@ -48,68 +48,7 @@ Color2 = "#FFBF69"
 Color3 = "#2EC4B6"
 Color4 = "#5FE9DA"
 
-# Delete used cache
-def delete_used_cache():
-        folder = "Posters/"
-        for filename in os.listdir(folder):
-            file_path = os.path.join(folder, filename)
-            if os.path.isfile(file_path) or os.path.islink(file_path):
-                os.unlink(file_path)
 
-    # Searching for a movie
-def search_title(event):
-    def execute():
-        global search, object_list, current_index
-        delete_used_cache()
-        loading_info.config(text="Checking database...")
-        current_index
-        query = searchbar.get()
-        object_list = get_data(query)
-        loading_info.config(text="Gathering movie information...")
-        display_info()
-    Thread(target=execute).start()
-# Next movie
-def next_movie():
-    global current_index
-    current_index += 1
-    if current_index == len(object_list):
-        current_index = 0
-    display_info()
-# Previous movie
-def previous_movie():
-    global current_index
-    current_index -= 1
-    if current_index < 0:
-        current_index = len(object_list) - 1
-    display_info()
-# Displaying movie information
-# Displaying movie images
-def display_movie_image():
-    def execute():
-        global object_list, current_index, poster_img
-        # When no movie is found
-        if len (object_list) == 0:
-            loading_info.config(text="No results found")
-            return
-        loading_info.config(text="Gathering movie information...")
-        movie = object_list[current_index]
-        img = download_image(f"https://api.themoviedb.org/3/movie/{movie.id}/images", movie.id)
-        poster_img = ImageTk.PhotoImage(Image.open(img))
-        poster_canvas.create_image(0, 0, image=poster_img, anchor="nw")
-        desc_box.config(state=NORMAL)
-        desc_box.delete("1.0", "end")
-        desc_box.insert("1.0", movie.overview)
-        details_box.config(state=NORMAL)
-        details_box.delete("1.0", "end")
-        # Movie Details
-        details_box.insert("1.0", f"Title: {movie.title}\n\n"
-                                    f"Release Date: {movie.release_date}\n\n"
-                                    f"Rating: {movie.vote_average}\n\n"
-                                    f"ID: {movie.id}")
-        loading_info.config(text="Result {current_index + 1} out of {len(object_list)}")
-        description_box.config(state="disabled")
-        details_box.config(state="disabled")
-    Thread(target=execute).start()
 
 # Home Screen
 def home():
@@ -192,7 +131,7 @@ def movie_info():
                              bg_color=(Color4, Color2))
     movieName.place(x=77, y=166)
     movieTitle = ctk.CTkLabel(search,
-                              text=get_data(searchbar.get())[current_index].title,
+                              text=get_data(searchbar)[current_index].title,
                               font=("Lexend", 32),
                               text_color=Dark,
                               bg_color=(Color4, Color2))
