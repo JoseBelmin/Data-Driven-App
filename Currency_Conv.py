@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import json
 import requests
 
-class CurrencyConverter(Tk):
+class CurrencyCompanion(Tk):
     def __init__(self):
         super().__init__()
         self.title("Currency Converter")
@@ -113,5 +113,5 @@ class CurrencyConverter(Tk):
         print(converted_amt, formatted_amt)
 
 if __name__ == "__main__":
-    app = CurrencyConverter()
+    app = CurrencyCompanion()
     app.mainloop()
