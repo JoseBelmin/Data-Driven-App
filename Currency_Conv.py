@@ -48,7 +48,7 @@ class CurrencyCompanion(Tk):
         banner.place(x=0, y=0)
 
     def create_result_label(self):
-        self.result_label = Label(self.main_frame, text=" ", font="ivy 16", fg=self.colors["C4"], bg=self.colors["C1"],
+        self.result_label = Label(self.main_frame, text=" ", font="inter 16", fg=self.colors["C4"], bg=self.colors["C1"],
                                   width=25, height=5, pady=7, anchor="center")
         self.result_label.place(x=50, y=50)
 
@@ -58,28 +58,28 @@ class CurrencyCompanion(Tk):
                     'SGD', 'THB', 'ZAR']
         currency.sort()
 
-        from_label = Label(self.main_frame, text="From", font="ivy 13 bold", fg=self.colors["C6"], bg=self.colors["C4"],
+        from_label = Label(self.main_frame, text="From", font="inter 13 bold", fg=self.colors["C6"], bg=self.colors["C4"],
                            width=8, height=1, pady=0, relief="flat", anchor="nw")
         from_label.place(x=50, y=225)
 
-        self.from_combo = ttk.Combobox(self.main_frame, width=10, justify="center", font="ivy 14", state="readonly")
+        self.from_combo = ttk.Combobox(self.main_frame, width=10, justify="center", font="inter 14", state="readonly")
         self.from_combo['values'] = tuple(currency)
         self.from_combo.place(x=50, y=255)
 
-        to_label = Label(self.main_frame, text="To", font="ivy 13 bold", fg=self.colors["C6"], bg=self.colors["C4"],
+        to_label = Label(self.main_frame, text="To", font="inter 13 bold", fg=self.colors["C6"], bg=self.colors["C4"],
                          width=8, height=1, pady=0, relief="flat", anchor="nw")
         to_label.place(x=222, y=225)
 
-        self.to_combo = ttk.Combobox(self.main_frame, width=10, font="ivy 14", state="readonly")
+        self.to_combo = ttk.Combobox(self.main_frame, width=10, font="inter 14", state="readonly")
         self.to_combo['values'] = tuple(currency)
         self.to_combo.place(x=222, y=255)
 
     def create_value_entry(self):
-        self.value_entry = Entry(self.main_frame, width=27, justify="center", font="ivy 14")
+        self.value_entry = Entry(self.main_frame, width=27, justify="center", font="inter 14")
         self.value_entry.place(x=52, y=325)
 
     def create_convert_button(self):
-        button = Button(self.main_frame, command=self.converter, text="Convert", font="ivy 14", relief="raised",
+        button = Button(self.main_frame, command=self.converter, text="Convert", font="inter 14", relief="raised",
                         overrelief="ridge", width=10, height=1, bg=self.colors["C1"], fg=self.colors["C4"])
         button.place(x=142, y=380)
 
