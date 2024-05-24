@@ -42,7 +42,7 @@ class CurrencyCompanion(Tk):
         icon = icon.resize((100, 100))
         icon = ImageTk.PhotoImage(icon)
 
-        banner = Label(self.top_frame, image=icon, compound="left", text="Currency Converter", font="arial 20 bold",
+        banner = Label(self.top_frame, image=icon, compound="left", text="CurrencyCompanion", font="arial 20 bold",
                     fg=self.colors["C4"], bg=self.colors["C6"], height=5, padx=5, pady=50, anchor="center")
         banner.image = icon
         banner.place(x=0, y=0)
