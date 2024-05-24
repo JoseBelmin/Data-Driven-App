@@ -6,7 +6,7 @@ import requests
 class CurrencyCompanion(Tk):
     def __init__(self):
         super().__init__()
-        self.title("Currency Converter")
+        self.title("CurrencyCompanion")
         self.geometry("414x590")
         self.configure(bg="#212529")
         self.resizable(width=False, height=False)
@@ -41,12 +41,11 @@ class CurrencyCompanion(Tk):
         icon = Image.open('Images\Coin_Guy.png')
         icon = icon.resize((100, 100))
         icon = ImageTk.PhotoImage(icon)
-        self.iconphoto(False, icon)
 
         banner = Label(self.top_frame, image=icon, compound="left", text="Currency Converter", font="arial 20 bold",
-                       fg=self.colors["C4"], bg=self.colors["C6"], height=5, padx=5, pady=50, anchor="center")
+                    fg=self.colors["C4"], bg=self.colors["C6"], height=5, padx=5, pady=50, anchor="center")
+        banner.image = icon
         banner.place(x=0, y=0)
-
     def create_result_label(self):
         self.result_label = Label(self.main_frame, text=" ", font="inter 16", fg=self.colors["C4"], bg=self.colors["C1"],
                                   width=25, height=5, pady=7, anchor="center")
