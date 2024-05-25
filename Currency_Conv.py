@@ -95,7 +95,7 @@ class CurrencyCompanion(Tk):
             'PLN': 'zł', 'RON': 'lei', 'SEK': 'kr', 'CHF': 'Fr', 'ISK': 'Kr', 'NOK': 'kr', 'HRK': 'kn', 'RUB': '₽',
             'TRY': '₺', 'AUD': '$', 'BRL': 'R$', 'CAD': '$', 'CNY': '¥', 'HKD': '$', 'IDR': 'Rp', 'ILS': '₪',
             'INR': '₹', 'KRW': '₩', 'MXN': '$', 'PHP': '₱', 'SGD': '$', 'THB': '฿', 'ZAR': 'R'
-        }
+        }   
         symbol = ccy_symbol_map.get(ccy_2, '')
 
         headers = {
@@ -107,7 +107,7 @@ class CurrencyCompanion(Tk):
         data = json.loads(response.text)
         converted_amt = data['result']['convertedAmount']
         formatted_amt = symbol + " {:,.2f}".format(converted_amt)
-
+    
         self.result_label['text'] = formatted_amt
         print(converted_amt, formatted_amt)
 
